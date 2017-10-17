@@ -1,0 +1,13 @@
+{
+  "extends": "airbnb-base",
+  "rules": {
+    "func-names": [
+      "error",
+      "never"
+    ],
+    // turn off newline after import(require)
+    "import/newline-after-import": [
+      "off"
+    ]
+  }
+}
