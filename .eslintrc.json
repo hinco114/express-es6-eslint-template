@@ -8,6 +8,15 @@
     // turn off newline after import(require)
     "import/newline-after-import": [
       "off"
+    ],
+    // Exception just for _id (MongoDB default Index)
+    "no-underscore-dangle": [
+      "error",
+      {
+        "allow": [
+          "_id"
+        ]
+      }
     ]
   }
 }
