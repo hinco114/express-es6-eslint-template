@@ -1,5 +1,8 @@
 #!/usr/bin/env node
 
+// Set to global.env (Default : 'development')
+global.env = process.env.NODE_ENV || 'development';
+
 /**
  * Module dependencies.
  */
