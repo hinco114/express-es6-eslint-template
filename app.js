@@ -6,6 +6,7 @@ const index = require('./routes/index');
 const app = express();
 const router = express.Router();
 const debug = require('debug')('bootstrap');
+const errorMiddlewares = require('./middlewares/errors');
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -17,23 +18,19 @@ app.use(cookieParser());
  */
 // app.use(express.static(path.join(__dirname, 'public')));
 
+/**
+ * Base URI of Router (http://locahost:port/api)
+ */
 app.use('/api', index(router));
 
 /**
  * catch 404 and forward to error handler
  */
-app.use((req, res, next) => {
-  const err = new Error('Not Found');
-  err.status = 404;
-  next(err);
-});
+app.use(errorMiddlewares.notFoundError);
 
 /**
- * error handler
+ * Main error handler
  */
-app.use((err, req, res, next) => {
-  debug(`Error handler executed : ${err}`);
-  res.sendStatus(err.status || 500);
-});
+app.use(errorMiddlewares.mainErrorHandler);
 
 module.exports = app;
