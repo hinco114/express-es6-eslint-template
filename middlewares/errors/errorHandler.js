@@ -19,6 +19,9 @@ const mainErrorHandler = async (err, req, res, next) => {
         console.log(`Client request Error : 404 (${req.baseURI})`);
         break;
     }
+    if (global.env === 'development') {
+      console.log(err);
+    }
     res.status(err.status);
     res.json({
       message: err.message,
