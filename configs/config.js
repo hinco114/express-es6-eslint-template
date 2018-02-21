@@ -1,7 +1,7 @@
 module.exports = {
   dbConfig: {
     mysql: {
-      host: 'localhost',
+      host: 'database.ip.address',
       dialect: 'mysql',
       charset: 'utf8mb4',
       collate: 'utf8mb4_general_ci',
@@ -10,6 +10,7 @@ module.exports = {
        */
       // timezone: '+09:00',
       logging: false,
+      operatorsAliases: false,
       production: {
         username: 'dbid',
         password: 'dbpass',
@@ -18,7 +19,7 @@ module.exports = {
       development: {
         username: 'dbid',
         password: 'dbpass',
-        database: 'development',
+        database: 'production',
       },
       test: {
         username: 'dbid',
@@ -26,11 +27,11 @@ module.exports = {
         database: 'test',
       },
     },
-    mongo: {
-      // TODO: Set Mongodb path to collect db URL.
-      production: 'mongodb://localhost',
-      development: 'mongodb://localhost',
-      test: 'mongodb://localhost',
-    },
+    // mongo: {
+    //   // TODO: Set Mongodb path to collect db URL.
+    //   production: 'mongodb://localhost',
+    //   development: 'mongodb://localhost',
+    //   test: 'mongodb://localhost',
+    // },
   },
 };
