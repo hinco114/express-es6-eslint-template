@@ -5,8 +5,10 @@ const bodyParser = require('body-parser');
 const index = require('./routes/index');
 const app = express();
 const router = express.Router();
-const debug = require('debug')('bootstrap');
 const errorMiddlewares = require('./middlewares/errors');
+
+// Load DB (Connection)
+const components = require('./components/db');
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
