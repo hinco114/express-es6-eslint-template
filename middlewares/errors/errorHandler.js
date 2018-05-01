@@ -2,10 +2,6 @@ const mainErrorHandler = async (err, req, res, next) => {
   try {
     // TODO: Separate log level by Winston.
     switch (err.status) {
-      default:
-        console.log('Internal Server Error');
-        err.status = 500;
-        break;
       case 400:
         console.log('----------------------------------------------------------------------');
         console.log(`[${new Date().toLocaleString()}] Client argument error with 400`);
@@ -17,6 +13,10 @@ const mainErrorHandler = async (err, req, res, next) => {
         break;
       case 404:
         console.log(`Client request Error : 404 (${req.baseURI})`);
+        break;
+      default:
+        console.log('Internal Server Error');
+        err.status = 500;
         break;
     }
     if (global.env === 'development') {

@@ -10,4 +10,6 @@ const getAllUser = async (req, res, next) => {
   }
 };
 
-module.exports.getAllUser = getAllUser;
+module.exports = {
+  getAllUser,
+};

@@ -10,4 +10,6 @@ const getAllTask = async (req, res, next) => {
   }
 };
 
-module.exports.getAllTask = getAllTask;
+module.exports = {
+  getAllTask,
+};
